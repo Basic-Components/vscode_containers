@@ -1,0 +1,2 @@
+# vscode_containers
+用于在vscode中通过remote-containers插件构造环境的镜像
