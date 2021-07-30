@@ -4,11 +4,13 @@ RUN apk add --no-cache \
     ca-certificates git curl \
     gcc=10.3.1_git20210424-r2 g++==10.3.1_git20210424-r2 libgcc \
     musl-dev linux-headers libc6-compat \
-    autoconf binutils libtool make cmake ninja \
+    pkgconfig autoconf binutils libtool make cmake \
     tar zip unzip\
-    perl python3 py3-pip 
+    perl python3 py3-pip gfortran
 ENV CC=/usr/bin/gcc
 ENV CXX=/usr/bin/g++
+ENV CMAKE_C_COMPILER=gcc
+ENV CMAKE_Fortran_COMPILER=gfortran
 ENV CURLOPT_HTTP_VERSION=CURL_HTTP_VERSION_1_1
 RUN pip --no-cache-dir install --upgrade pip
 RUN pip --no-cache-dir install conan==1.39.0
