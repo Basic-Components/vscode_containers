@@ -26,7 +26,7 @@ RUN git config --global http.sslVerify false
 WORKDIR /ninja
 RUN git clone -b v1.10.2 https://github.com/ninja-build/ninja.git
 WORKDIR /ninja/ninja
-RUN ./configure.py --bootstrap
+RUN python3 configure.py --bootstrap
 RUN cp ninja /usr/bin
 RUN WORKDIR /
 RUN rm -rf ninja
