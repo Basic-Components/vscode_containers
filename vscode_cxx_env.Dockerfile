@@ -4,7 +4,7 @@ RUN apk add --no-cache \
     ca-certificates git curl \
     gcc=10.3.1_git20210424-r2 g++==10.3.1_git20210424-r2 libgcc \
     musl-dev linux-headers libc6-compat \
-    pkgconfig autoconf binutils libtool make cmake \
+    pkgconfig autoconf binutils libtool make cmake re2c\
     tar zip unzip\
     perl python3 py3-pip gfortran
 ENV CC=/usr/bin/gcc
@@ -21,9 +21,16 @@ RUN conan profile update settings.compiler.exception=seh default
 RUN conan profile update settings.compiler.libcxx=libstdc++11 default
 RUN conan profile update settings.compiler.threads=posix default
 RUN conan profile update settings.build_type=Release default
-WORKDIR /vcpkg
 RUN git config --global http.version HTTP/1.1
 RUN git config --global http.sslVerify false
+WORKDIR /ninja
+RUN git clone --b v1.10.2 git://github.com/ninja-build/ninja.git
+WORKDIR /ninja/ninja
+RUN ./configure.py --bootstrap
+RUN cp ninja /usr/bin
+RUN WORKDIR /
+RUN rm -rf ninja
+WORKDIR /vcpkg
 RUN git clone https://github.com/Microsoft/vcpkg.git
 WORKDIR /vcpkg/vcpkg
 RUN ./bootstrap-vcpkg.sh --useSystemBinaries
