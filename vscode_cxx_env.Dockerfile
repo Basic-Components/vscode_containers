@@ -36,3 +36,4 @@ WORKDIR /vcpkg/vcpkg
 RUN ./bootstrap-vcpkg.sh --useSystemBinaries
 COPY x64-linux-musl.cmake /vcpkg/vcpkg/triplets/
 RUN ln -s /vcpkg/vcpkg/vcpkg /usr/bin/vcpkg
+ENV VCPKG_DEFAULT_TRIPLET=x64-linux
