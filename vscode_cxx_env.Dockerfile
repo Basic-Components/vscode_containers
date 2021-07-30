@@ -24,7 +24,7 @@ RUN conan profile update settings.build_type=Release default
 RUN git config --global http.version HTTP/1.1
 RUN git config --global http.sslVerify false
 WORKDIR /ninja
-RUN git clone --b v1.10.2 https://github.com/ninja-build/ninja.git
+RUN git clone -b v1.10.2 https://github.com/ninja-build/ninja.git
 WORKDIR /ninja/ninja
 RUN ./configure.py --bootstrap
 RUN cp ninja /usr/bin
