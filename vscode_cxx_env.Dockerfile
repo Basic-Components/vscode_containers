@@ -28,7 +28,7 @@ RUN git clone -b v1.10.2 https://github.com/ninja-build/ninja.git
 WORKDIR /ninja/ninja
 RUN python3 configure.py --bootstrap
 RUN cp ninja /usr/bin
-RUN WORKDIR /
+WORKDIR /
 RUN rm -rf ninja
 WORKDIR /vcpkg
 RUN git clone https://github.com/Microsoft/vcpkg.git
