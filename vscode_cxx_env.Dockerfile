@@ -1,8 +1,11 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-3.14
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-3.13
+#RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+#COPY pip.conf /etc/pip.conf
 RUN apk update 
 RUN apk add --no-cache \
     ca-certificates git curl \
-    gcc=10.3.1_git20210424-r2 g++==10.3.1_git20210424-r2 libgcc \
+    gcc=10.2.1_pre1-r3 g++==10.2.1_pre1-r3 libgcc \
+    clang \
     musl-dev linux-headers libc6-compat \
     pkgconfig autoconf binutils libtool make cmake re2c\
     tar zip unzip\
@@ -30,10 +33,6 @@ RUN python3 configure.py --bootstrap
 RUN cp ninja /usr/bin
 WORKDIR /
 RUN rm -rf ninja
-WORKDIR /vcpkg
-RUN git clone https://github.com/Microsoft/vcpkg.git
-WORKDIR /vcpkg/vcpkg
-RUN ./bootstrap-vcpkg.sh --useSystemBinaries
-COPY x64-linux-musl.cmake /vcpkg/vcpkg/triplets/
-RUN ln -s /vcpkg/vcpkg/vcpkg /usr/bin/vcpkg
-ENV VCPKG_DEFAULT_TRIPLET=x64-linux
+RUN conan install grpc/1.38.0@ --build=missing
+RUN ln -s /root/.conan/data/protobuf/3.17.1/_/_/package/aba69e903eec80eb5e0e9f8eca38034f0013e66b/bin/protoc /usr/bin/protoc
+ENV PROTOC_GEN_GRPC_CXX_PATH=/root/.conan/data/grpc/1.38.0/_/_/package/4aaf5f67464675b820d68e2e1264dca6d2b661d9/bin/grpc_cpp_plugin

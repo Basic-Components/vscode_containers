@@ -1,18 +1,6 @@
 # vscode_containers
 
-用于在vscode中通过remote-containers插件构造环境的镜像
-
-包含包管理工具
-
-+ `conan`,已经创建了名为`default`的profile,其配置如下
-
-    ```conf
-
-    ```
-
-+ `vcpkg`仓库下载在路径`/vcpkg/vcpkg`中,`/vcpkg/vcpkg/vcpkg`软连接到了`/usr/bin/vcpkg`
-
-    感谢[robotdad/findfaces](https://github.com/robotdad/findfaces/tree/original)这个项目.它提供了`x64-linux-musl.cmake`.
+用于在vscode中通过remote-containers插件构造环境的镜像.主要的工具可以看tag,更多细节可以查看changelog中得描述.
 
 ## 用法
 
