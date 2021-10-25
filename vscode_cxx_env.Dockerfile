@@ -7,8 +7,8 @@ RUN apk add --no-cache \
     gcc=10.2.1_pre1-r3 g++==10.2.1_pre1-r3 libgcc \
     clang \
     musl-dev linux-headers libc6-compat \
-    pkgconfig autoconf binutils libtool make cmake re2c\
-    tar zip unzip\
+    pkgconfig autoconf binutils libtool make cmake re2c \
+    tar zip unzip \
     perl python3 py3-pip gfortran
 ENV CC=/usr/bin/gcc
 ENV CXX=/usr/bin/g++
