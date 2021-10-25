@@ -1,3 +1,7 @@
+# alpine3.13-gcc10-conan1.41.0-protobuf3.17.1-grpc1.39.1
+
+更新conan到1.41.0
+
 # alpine3.13-gcc10-conan1.40.3-clang10-protobuf3.17.1-grpc1.39.1
 
 修复`alpine3.13-gcc10-conan1.40.0-clang10-protobuf3.17.1-grpc1.39.1`中`Unable to connect to conancenter=https://center.conan.io`问题
