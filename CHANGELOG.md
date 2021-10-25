@@ -1,3 +1,19 @@
+# alpine3.13-gcc10-conan1.40.3-clang10-protobuf3.17.1-grpc1.39.1
+
+修复`alpine3.13-gcc10-conan1.40.0-clang10-protobuf3.17.1-grpc1.39.1`中`Unable to connect to conancenter=https://center.conan.io`问题
+
+# alpine3.13-gcc10-conan1.40.0-clang10-protobuf3.17.1-grpc1.39.1
+
++ `cmake3.20.3`
++ `make`
++ `ninja`
++ `gcc10`
++ `python3.9`
++ `gfortran`
++ `clang11`
++ `protobuf3.17.1`
++ `grpc1.39.1`(`grpc_cpp_plugin`路径由环境变量`PROTOC_GEN_GRPC_CXX_PATH`指定)
+
 # alpine3.13-gcc10-conan1.39.0-clang10-protobuf3.17.1-grpc1.38.0
 
 + `cmake3.20.3`
