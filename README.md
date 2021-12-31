@@ -9,7 +9,7 @@
 1. 项目根目录创建`Dockerfile`
 
     ```Dockerfile
-    FROM hsz1273327/vscode_cxx_env:alpine3.13-gcc10-conan1.39.0-vcpkgmaster
+    FROM hsz1273327/vscode_cxx_env:alpine3.13-gcc10-conan1.44.0-protobuf3.17.1-grpc1.43.0
     ```
 
 2. vscode中设置remote插件配置`New Container->From Dockerfile`
@@ -26,7 +26,7 @@
 2. 项目根目录创建`Dockerfile`
 
     ```Dockerfile
-    FROM hsz1273327/vscode_cxx_env:alpine3.13-gcc10-conan1.39.0-vcpkgmaster
+    FROM hsz1273327/vscode_cxx_env:alpine3.13-gcc10-conan1.44.0-protobuf3.17.1-grpc1.43.0
     ENV X_VCPKG_ASSET_SOURCES=x-azurl,http://106.15.181.5/
     RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
     RUN apk update 
